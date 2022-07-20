@@ -48,5 +48,5 @@ function register_page() {
     location.href = "./src/pages/register.html"
 }
 function back() {
-    location.href = "/Controle-de-Gastos/"
+    location.href = "index.html"
 }
