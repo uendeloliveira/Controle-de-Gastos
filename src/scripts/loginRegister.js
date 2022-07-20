@@ -25,7 +25,7 @@ function register(){
     firebase.auth().createUserWithEmailAndPassword(
         registerEmail, registerSenha
     ).then(() => {
-        location.href = "/"
+        location.href = "/Controle-de-Gastos/"
     }).catch(error => {
         alert(getErrorMessage(error))
     })
