@@ -48,5 +48,5 @@ function register_page() {
     location.href = "./src/pages/register.html"
 }
 function back() {
-    location.href = "index.html"
+    location.href = ".../index.html"
 }
