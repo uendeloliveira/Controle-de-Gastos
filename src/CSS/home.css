@@ -1,0 +1,101 @@
+.home{
+    position: relative;
+    align-self: center;
+    text-align: center;
+    margin: auto;
+    max-height: 80%;
+    padding: 80px;
+    background-color: rgba(26, 26, 26, 0.9);
+    color: #fff;
+    border-radius: 50px;
+    overflow-y: auto;
+}
+.logout{
+    position: absolute;
+    right: 0;
+    margin:20px;
+    padding: 5px 20px;
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 1);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+}
+.logout:hover{
+    background-color: rgba(128, 128, 128, 0.8);
+}
+.add{
+    position:fixed;
+    border: none;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    bottom: 50px;
+    right:50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 5px;
+}
+.add:hover{
+    background-color: greenyellow;
+}
+.delete{
+    position: absolute;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50px;
+    border: none;
+    width: 22px;
+    right: 10px;
+    top: 35%;
+    background-color: rgb(170, 0, 0);
+    color: #fff;
+    display: none;
+}
+ol{
+    list-style: none;
+}
+ol li{
+    position: relative;
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-align: left;
+    padding: 1% 5%;
+}
+ol li:hover{
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #222;
+}
+ol li:hover .delete{
+    display: block;
+}
+ol p{
+    padding: 2px 0 2px 0;
+}
+ol li.expense{
+    border-left: 10px solid red;
+}
+ol li.income{
+    border-left: 10px solid green;
+}
+@media (min-width: 1440px) {
+    .home {
+        width: 30%;
+    }
+}
+@media (max-width: 1920px) {
+    .home {
+        width: 40%;
+    }
+}
+@media (max-width: 1280px) {
+    .home {
+        width: 60%;
+    }
+}
+@media (max-width: 750px) {
+    .home {
+        width: 100%;
+    }
+}

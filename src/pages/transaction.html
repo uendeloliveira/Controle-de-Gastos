@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/transaction.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="container">
+
+        <button class="logout" onclick="logout()">Sair</button>
+
+        <div class="transaction">
+            <form>
+                <h1>Nova Transação</h1>
+                <br><br>
+                <input type="radio" name="type" id="income" checked> <label for="income">Receita</label>
+                <input type="radio" name="type" id="expense"> <label for="expense">Despesa</label>
+                <br><br>
+                <p>Data</p>
+                <input type="date" id="date">
+                <br><br>
+                <p>Moeda</p>
+                <select id="currency">
+                    <option>Dólar</option>
+                    <option>Euro</option>
+                    <option selected>Real</option>
+                </select>
+                <br><br>
+                <p>Valor</p>
+                <input type="number" id="value">
+                <br><br>
+                <p>Tipo de transação</p>
+                <select id="transactionType">
+                    <option value="">-- Selecione um tipo de transação --</option>
+                    <option>Alimentação</option>
+                    <option>Aluguel</option>
+                    <option>Lazer</option>
+                    <option>Salário</option>
+                    <option>Supermercado</option>
+                    <option>Transporte</option>
+                    <option>Outros</option>
+                </select>
+                <br><br>
+                <p>Descrição</p>
+                <input type="text" id="description">
+                <br><br>
+                <button type="button" onclick="saveTransaction()">Salvar</button>
+            </form>
+
+        <button class="back" onclick="back()">Voltar</button>
+            
+        </div>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore-compat.js"></script>
+    <script src="../scripts/firebase-init.js"></script>
+    <script src="../scripts/transaction.js"></script>
+</body>
+
+</html>
