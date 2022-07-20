@@ -1,13 +1,13 @@
 firebase.auth().onAuthStateChanged(user => {
     if (!user) {
-        location.href = "/"
+        location.href = "https://uendeloliveira.github.io/Controle-de-Gastos/"
     }
     return findTransactions(user);
 })
 
 function logout () {
     firebase.auth().signOut().then(() =>{
-        location.href = "/"
+        location.href = "https://uendeloliveira.github.io/Controle-de-Gastos/"
     }).catch(() => {
         alert('Error ao fazer logout')
     })
