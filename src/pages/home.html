@@ -13,13 +13,31 @@
 <body>
 
     <section class="container">
+        <p id="name"></p>
         <button class="logout" onclick="logout()">Sair</button>
+        <div class="dashboard">
+            <p class="DB_balance">Saldo</p><p id="balance" class="DB_balance_value"></p>
+            <p class="DB_income">Entrada</p><p id="income" class="DB_income_value"></p>
+            <p class="DB_expense">Saída</p><p id="expense" class="DB_expense_value"></p>
+        </div>
+        
         <div class="home">
-            <h1>Controle de Gastos</h1>
+            <h1>Lista de transações</h1>
+            <br><br>
+            <h2>Data</h2>
+            <br><br>
+            <div class="setTime">
+                <p class="firstDate">Início</p>
+                <input class="firstInput" id="firstDate" type="date">
+                <p class="lastDate">Fim</p>
+                <input class="lastInput" id="lastDate" type="date">
+            </div>
+            <br><br>
+            <button id="findTransactionsButton">Buscar</button>
+            <button id="clean">Limpar</button>
             <br><br>
             <ol id="transactions"></ol>
             <button class="add" onclick="newTransaction()">+</button>
-            
         </div>
     </section>
 

@@ -1,6 +1,6 @@
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-        location.href = "./src/pages/home.html"
+        location.href = "./home.html"
     }
 })
 
@@ -12,24 +12,24 @@ function login() {
     firebase.auth().signInWithEmailAndPassword(
         loginEmail, loginSenha
     ).then(response => {
-        location.href = "./src/pages/home.html"
+        location.href = "./home.html"
     }).catch(error => {
         alert(getErrorMessage(error));
         console.log('erro', error)
     });
 }
-function register(){
-    var registerEmail = document.getElementById('registerEmail').value;
-    var registerSenha = document.getElementById('registerPassword').value;
+// function register(){
+//     var registerEmail = document.getElementById('registerEmail').value;
+//     var registerSenha = document.getElementById('registerPassword').value;
 
-    firebase.auth().createUserWithEmailAndPassword(
-        registerEmail, registerSenha
-    ).then(() => {
-        location.href = "https://uendeloliveira.github.io/Controle-de-Gastos/"
-    }).catch(error => {
-        alert(getErrorMessage(error))
-    })
-}
+//     firebase.auth().createUserWithEmailAndPassword(
+//         registerEmail, registerSenha
+//     ).then(() => {
+//         location.href = "./login.html"
+//     }).catch(error => {
+//         alert(getErrorMessage(error))
+//     })
+// }
 
 function getErrorMessage(error) {
     if (error.code == "auth/user-not-found"){
@@ -45,8 +45,14 @@ function getErrorMessage(error) {
 }
 
 function register_page() {
-    location.href = "./src/pages/register.html"
+    location.href = "./register.html"
 }
 function back() {
-    location.href = "https://uendeloliveira.github.io/Controle-de-Gastos/"
+    location.href = "./login.html"
+}
+function to_login() {
+    location.href = "./src/pages/login.html"
+}
+function to_register_page() {
+    location.href = "./src/pages/register.html"
 }

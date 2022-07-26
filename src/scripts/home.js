@@ -1,37 +1,66 @@
 firebase.auth().onAuthStateChanged(user => {
     if (!user) {
-        location.href = "https://uendeloliveira.github.io/Controle-de-Gastos/"
+        location.href = "/"
     }
     return findTransactions(user);
 })
-
 function logout () {
     firebase.auth().signOut().then(() =>{
-        location.href = "https://uendeloliveira.github.io/Controle-de-Gastos/"
+        location.href = "/"
     }).catch(() => {
         alert('Error ao fazer logout')
     })
 }
-
 function newTransaction(){
     location.href = "./transaction.html"
 }
-
 function findTransactions(user) {
     firebase.firestore()
-        .collection('Transactions')
-        .where('user.uid', '==', user.uid)
-        .orderBy('date', 'desc')
+    .collection('Transactions')
+    .where('user.uid', '==', user.uid)
+    .orderBy('date', 'desc')
         .get()
         .then(snapshot => {
-            const transactions = snapshot.docs.map(doc => ({
+            transactions = snapshot.docs.map(doc => ({
                 ...doc.data(),
                 uid: doc.id
             }));
-            addTransactionsToScreen(transactions);
+    PegarData = document.getElementById('findTransactionsButton')
+    firstDate = document.getElementById('firstDate')
+    lastDate = document.getElementById('lastDate')
+    PegarData.addEventListener('click', () => {
+        primeiraData = firstDate.value
+        segundaData = lastDate.value
+        
+        const newTransactionsResult = transactions.filter(setData => 
+            setData.date >= primeiraData && setData.date <= segundaData
+            )
+            
+        addTransactionsToScreen(newTransactionsResult);
+        const income = document.getElementById('income');
+        const expense = document.getElementById('expense');
+        const result = document.getElementById('balance');
+        const pegarIncome = document.querySelectorAll('li.income p:nth-child(3)');
+        const pegarExpense = document.querySelectorAll('li.expense p:nth-child(3)');
+        var somaIncome = 0;
+        var somaExpense = 0;
+        for (var i = 0; i<pegarIncome.length; i++){
+            somaIncome += parseFloat(pegarIncome[i].innerHTML)
+        }
+        for (var i = 0; i<pegarExpense.length; i++){
+            somaExpense += parseFloat(pegarExpense[i].innerHTML)
+        }
+        income.innerHTML = `R$ ` + somaIncome
+        expense.innerHTML = `R$ ` + somaExpense
+        result.innerHTML = `R$ ` + (somaIncome-somaExpense)
         })
-}
+    })
 
+    clean = document.getElementById('clean')
+    clean.addEventListener('click', () => {
+        location.href = "/src/pages/home.html"
+    })
+}
 function addTransactionsToScreen(transactions) {
     const orderedList = document.getElementById('transactions');
 
@@ -65,12 +94,10 @@ function addTransactionsToScreen(transactions) {
             const description = document.createElement('p')
             description.innerHTML = transaction.description;
             li.appendChild(description);
-        }
-
+        }     
         orderedList.appendChild(li);
     });
 }
-
 function askRemoveTransaction(transaction) {
     const shouldRemove = confirm('Deseja remover a transação?')
     if (shouldRemove) {
@@ -86,11 +113,9 @@ function removeTransaction(transaction) {
             document.getElementById(transaction.uid).remove()
         })
 }
-
 function formatDate(date) {
     return new Date(date).toLocaleDateString('pt-br', {timeZone: 'GMT'});
 }
-
 function formatMoney(money) {
-    return `${money.currency} ${money.value.toFixed(2)}`
+    return `${money.value.toFixed(2)}`
 }

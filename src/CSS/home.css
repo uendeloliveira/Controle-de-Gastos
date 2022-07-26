@@ -1,14 +1,96 @@
+.dashboard{
+    position: absolute;
+    display: grid;
+    grid-template-areas:
+    "DB_balance DB_income DB_expense"
+    "DB_balance_value DB_income_value DB_expense_value";
+    height: max-content;
+    left: 0;
+    top: 10%;
+    right: 0;
+    margin: auto;
+    background-color: rgba(26, 26, 26, 0.9);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 2rem;
+    gap: 10px 50px;
+    padding: 50px 20px;
+    text-align: center;
+    overflow-x: auto;
+}
+.DB_balance{
+    margin: auto;
+    width: max-content;
+    grid-area: DB_balance;
+    font-size: 1.5rem;
+}
+.DB_income{
+    margin: auto;
+    width: max-content;
+    grid-area: DB_income;
+    font-size: 1.5rem;
+}
+.DB_expense{
+    margin: auto;
+    width: max-content;
+    grid-area: DB_expense;
+    font-size: 1.5rem;
+}
+.DB_balance_value{
+    color: Skyblue;
+    grid-area: DB_balance_value;
+}
+.DB_income_value{
+    color: springgreen;
+    grid-area: DB_income_value;
+}
+.DB_expense_value{
+    color: rgb(255, 30, 30);
+    grid-area: DB_expense_value;
+}
 .home{
-    position: relative;
+    position: absolute;
+    left: 0;
+    bottom: 10%;
+    right: 0;
+    margin: auto;
     align-self: center;
     text-align: center;
-    margin: auto;
-    max-height: 80%;
+    max-height: 50%;
     padding: 80px;
     background-color: rgba(26, 26, 26, 0.9);
     color: #fff;
     border-radius: 50px;
     overflow-y: auto;
+    overflow-x: hidden;
+}
+.home h1{
+    font-size: 2rem;
+}
+.setTime{
+    display: grid;
+    grid-template-areas: 
+    "firstDate lastDate"
+    "firstInput lastInput";
+    gap: 20px;
+    justify-content: center;
+}
+.setTime input{
+    width: max-content;
+    padding: 5px;
+    border-radius: 50px;
+}
+.firstDate{
+    grid-area: firstDate;
+}
+.lastDate{
+    grid-area: lastDate;
+}
+.firstInput{
+    grid-area: firstInput;
+}
+.lastInput{
+    grid-area: lastInput;
 }
 .logout{
     position: absolute;
@@ -23,6 +105,11 @@
 }
 .logout:hover{
     background-color: rgba(128, 128, 128, 0.8);
+}
+#findTransactionsButton, #clean{
+    border-radius: 50px;
+    padding: 5px 20px;
+    margin:10px;
 }
 .add{
     position:fixed;
@@ -80,22 +167,39 @@ ol li.income{
     border-left: 10px solid green;
 }
 @media (min-width: 1440px) {
-    .home {
+    .home, .dashboard{
         width: 30%;
+    }
+    .home{
+        max-height: 70%;
     }
 }
 @media (max-width: 1920px) {
-    .home {
+    .home, .dashboard{
         width: 40%;
+    }
+    .home{
+        max-height: 60%;
     }
 }
 @media (max-width: 1280px) {
-    .home {
+    .home, .dashboard {
         width: 60%;
     }
 }
 @media (max-width: 750px) {
-    .home {
+    .home, .dashboard {
         width: 100%;
+    }
+    .home{
+        max-height: 55%;
+    }
+}
+@media (max-width: 400px) {
+    .dashboard{
+        max-height: 25%;
+    }
+    .home{
+        max-height: 45%;
     }
 }

@@ -13,23 +13,13 @@
 
 
     <section class="container">
-        <div class="login">
-            <h1>Login</h1>
-            <br><br>
-            <input class="inEmail" type="email" id="loginEmail" placeholder="Email">
-            <br><br>
-            <input class="inSenha" type="password" id="loginPassword" placeholder="Senha">
-            <br><br><br>
-            <button class="singIn" onclick="login()">Entrar</button>
-            <br><br>
-            <button class="singUp" onclick="register_page()">Registrar</button>
+        <h1>Controle de Gastos</h1>
+        <div class="index">
+            <button class="singIn" onclick="to_login()">Entrar</button>
+            <button class="singUp" onclick="to_register_page()">Registrar</button>
         </div>
     </section>
-
-    <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore-compat.js"></script>
-    <script src="src/scripts/firebase-init.js"> </script>
+    
     <script src="src/scripts/loginRegister.js"></script>
 </body>
 
