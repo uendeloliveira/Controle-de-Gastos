@@ -1,6 +1,6 @@
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-        location.href = "./home.html"
+        location.href = "/Controle-de-Gastos/src/pages/home.html"
     }
 })
 
@@ -12,7 +12,7 @@ function login() {
     firebase.auth().signInWithEmailAndPassword(
         loginEmail, loginSenha
     ).then(response => {
-        location.href = "./home.html"
+        location.href = "/Controle-de-Gastos/src/pages/home.html"
     }).catch(error => {
         alert(getErrorMessage(error));
         console.log('erro', error)
@@ -45,7 +45,7 @@ function getErrorMessage(error) {
 }
 
 function register_page() {
-    location.href = "./register.html"
+    location.href = "/Controle-de-Gastos/src/pages/register.html"
 }
 function register() {
     location.href = "./register.html"
