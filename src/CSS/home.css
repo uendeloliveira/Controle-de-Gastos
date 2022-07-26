@@ -171,15 +171,12 @@ ol li.income{
         width: 30%;
     }
     .home{
-        max-height: 70%;
+        max-height: 60%;
     }
 }
 @media (max-width: 1920px) {
     .home, .dashboard{
         width: 40%;
-    }
-    .home{
-        max-height: 60%;
     }
 }
 @media (max-width: 1280px) {
