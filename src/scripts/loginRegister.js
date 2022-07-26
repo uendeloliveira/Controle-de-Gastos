@@ -47,6 +47,9 @@ function getErrorMessage(error) {
 function register_page() {
     location.href = "./register.html"
 }
+function register() {
+    location.href = "./register.html"
+}
 function back() {
     location.href = "./login.html"
 }
