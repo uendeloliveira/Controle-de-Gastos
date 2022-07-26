@@ -58,7 +58,7 @@ function findTransactions(user) {
 
     clean = document.getElementById('clean')
     clean.addEventListener('click', () => {
-        location.href = "/src/pages/home.html"
+        location.href = "./home.html"
     })
 }
 function addTransactionsToScreen(transactions) {
